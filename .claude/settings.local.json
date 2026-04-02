@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(claude mcp:*)",
+      "mcp__stitch__list_projects",
+      "Bash(python -m http.server 8080)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080/)",
+      "mcp__stitch__list_screens",
+      "mcp__stitch__get_screen",
+      "WebFetch(domain:contribution.usercontent.google.com)",
+      "Bash(curl -sL \"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2ViNWNmNjllZjNiMDQ4OTJhMjMwNWFmYmY2Y2Q4Nzg3EgsSBxCNhPWZ-RAYAZIBJAoKcHJvamVjdF9pZBIWQhQxNzM4Mzk1ODQzNDY3Njg2OTU1Mw&filename=&opi=89354086\" -o C:/Projekty/Plachty14/stitch_galeria.html)",
+      "Bash(curl -sL \"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2QxNjIzYjBiOTMzYjQ0YTA4YmRjNTdmMDI2Mzc3OTM3EgsSBxCNhPWZ-RAYAZIBJAoKcHJvamVjdF9pZBIWQhQxNzM4Mzk1ODQzNDY3Njg2OTU1Mw&filename=&opi=89354086\" -o C:/Projekty/Plachty14/stitch_home.html)",
+      "Bash(ffmpeg -version)",
+      "Bash(magick -version)",
+      "Bash(cwebp -version)",
+      "Bash(where ffmpeg:*)",
+      "Bash(where magick:*)",
+      "Bash(where python:*)",
+      "Bash(python -c \"from PIL import Image; print\\('PIL ok'\\)\")",
+      "Bash(python -c \"import cv2; print\\('cv2 ok'\\)\")",
+      "Bash(winget install:*)",
+      "Bash(python -m pip install Pillow --quiet)",
+      "Bash(python -c \"from PIL import Image; print\\('PIL ready'\\)\")",
+      "Bash(python:*)"
+    ]
+  }
+}

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;1,400&amp;family=Manrope:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-container": "#f5dcbe",
+              "on-primary-container": "#98c083",
+              "on-secondary-container": "#725f48",
+              "surface": "#fbf9f5",
+              "secondary-fixed-dim": "#dbc3a6",
+              "tertiary-fixed-dim": "#fcb1d3",
+              "tertiary-container": "#6c3451",
+              "surface-container-high": "#eae8e4",
+              "inverse-on-surface": "#f2f0ed",
+              "on-tertiary-container": "#e9a0c1",
+              "primary-container": "#2d4f1e",
+              "on-tertiary-fixed-variant": "#6c3451",
+              "on-primary-fixed": "#062100",
+              "surface-container-low": "#f5f3ef",
+              "primary-fixed": "#c5efad",
+              "tertiary": "#511e3a",
+              "on-secondary": "#ffffff",
+              "on-secondary-fixed": "#261907",
+              "surface-container-highest": "#e4e2de",
+              "surface-tint": "#446733",
+              "primary": "#173809",
+              "on-primary-fixed-variant": "#2d4f1e",
+              "inverse-surface": "#30312e",
+              "outline-variant": "#c3c8bb",
+              "surface-dim": "#dbdad6",
+              "surface-container-lowest": "#ffffff",
+              "on-surface": "#1b1c1a",
+              "on-error": "#ffffff",
+              "secondary": "#6e5b44",
+              "surface-bright": "#fbf9f5",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-primary": "#ffffff",
+              "primary-fixed-dim": "#a9d293",
+              "background": "#fbf9f5",
+              "surface-container": "#efeeea",
+              "surface-variant": "#e4e2de",
+              "outline": "#73796d",
+              "inverse-primary": "#a9d293",
+              "on-tertiary-fixed": "#380824",
+              "secondary-fixed": "#f8dec1",
+              "on-secondary-fixed-variant": "#55442e",
+              "error": "#ba1a1a",
+              "on-surface-variant": "#43493e",
+              "on-background": "#1b1c1a",
+              "tertiary-fixed": "#ffd8e7",
+              "on-error-container": "#93000a"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-glass {
+            backdrop-filter: blur(12px);
+            background-color: rgba(251, 249, 245, 0.8);
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(23, 56, 9, 0.4), rgba(23, 56, 9, 0.1));
+        }
+        .masonry-item:nth-child(even) {
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface overflow-x-hidden selection:bg-on-primary-container selection:text-primary">
+<!-- Top Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-900/80 backdrop-blur-md flex justify-between items-center px-12 py-6 max-w-screen-2xl mx-auto left-1/2 -translate-x-1/2">
+<div class="text-2xl font-serif text-green-900 dark:text-green-100 italic font-headline">The Curated Sanctuary</div>
+<div class="hidden md:flex items-center space-x-12 font-label text-sm uppercase tracking-widest">
+<a class="text-green-900 dark:text-green-100 border-b-2 border-green-900 dark:border-green-100 pb-1 hover:opacity-70 transition-opacity duration-300" href="#">The Stay</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-green-900 dark:hover:text-green-100 transition-opacity duration-300" href="#">Activities</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-green-900 dark:hover:text-green-100 transition-opacity duration-300" href="#">Sustainability</a>
+</div>
+<button class="bg-primary text-on-primary font-label px-8 py-3 rounded-full text-sm uppercase tracking-widest hover:opacity-90 active:scale-95 transition-all duration-200">
+            Book Now
+        </button>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Luxury safari tent" class="w-full h-full object-cover scale-105" data-alt="Luxurious safari tent nestled in a foggy morning forest with warm interior lights glowing against the misty green trees" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRLtH2QF6_fhejwcEwwa38cDnw-paJF1jWqmS5_ldcATycclcepLmJtn_1YCgAChz1e2BtLgnOmkUyUR1KOYn6HLRcapQnPC6A6RP4mndR1QPipshuklwjuH9j4N9Vi3gJ-wmoEDt2eO3mV57U_5hmj73lc8-Ls_5LPE64bN6F461m-QVGN_th6V3g0dz_uWDTTprOWb_SEpxVGW27xlrZ7qUz9FV06Se8aCaed7EfHhOUJ1-1e9OZRSLLv6s10fwPev05sXPG1Iq_"/>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="relative z-10 text-center px-6 max-w-4xl">
+<span class="font-label text-white/90 text-sm uppercase tracking-[0.4em] block mb-6">Experience the Unseen</span>
+<h1 class="font-headline italic text-7xl md:text-9xl text-white mb-12 leading-tight">Bobo Stay</h1>
+<div class="flex flex-col md:flex-row items-center justify-center gap-6">
+<button class="bg-surface text-primary px-10 py-4 rounded-full font-label text-sm uppercase tracking-widest hover:bg-surface-container-high transition-colors active:scale-95">
+                        Zarezerwuj teraz
+                    </button>
+<button class="border border-white/30 text-white backdrop-blur-md px-10 py-4 rounded-full font-label text-sm uppercase tracking-widest hover:bg-white/10 transition-colors active:scale-95">
+                        Odkryj miejsce
+                    </button>
+</div>
+</div>
+<div class="absolute bottom-12 left-12 hidden md:block">
+<div class="flex items-center gap-4 text-white/60 font-label text-xs tracking-widest">
+<span>COORDINATES: 49.3000° N, 19.9500° E</span>
+<div class="w-12 h-px bg-white/30"></div>
+</div>
+</div>
+</section>
+<!-- Intro / About Section -->
+<section class="py-32 px-12 max-w-screen-2xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
+<div class="md:col-span-7">
+<span class="font-label text-secondary text-sm uppercase tracking-widest mb-4 block">Manifesto</span>
+<h2 class="font-headline italic text-5xl md:text-7xl text-primary leading-tight mb-8">
+                        Luksus w symbiozie z naturą. Przestrzeń do oddechu.
+                    </h2>
+</div>
+<div class="md:col-span-5">
+<p class="text-on-surface-variant text-lg leading-relaxed mb-8">
+                        Bobo Stay to nie tylko nocleg, to kuracja dla cyfrowej duszy. W sercu dzikiej przyrody stworzyliśmy azyl, w którym nowoczesny komfort spotyka się z pierwotnym spokojem lasu. Zapomnij o świecie, usłysz własne myśli.
+                    </p>
+<a class="inline-flex items-center gap-2 font-label text-primary font-bold uppercase tracking-widest text-sm group" href="#">
+                        Poznaj naszą historię
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Accommodation Gallery -->
+<section class="bg-surface-container-low py-32 px-12">
+<div class="max-w-screen-2xl mx-auto">
+<div class="flex justify-between items-end mb-20">
+<div>
+<span class="font-label text-secondary text-sm uppercase tracking-widest mb-4 block">Kolekcja</span>
+<h2 class="font-headline italic text-5xl text-primary">Twoja kryjówka</h2>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+<!-- Item 1 -->
+<div class="group cursor-pointer">
+<div class="overflow-hidden rounded-xl aspect-[3/4] mb-6">
+<img alt="Safari Tent" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Spacious luxury safari tent with premium wooden deck and outdoor furniture overlooking a serene lake at dawn" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL19gccjOd0oxR6YeBh8GL18BUqySIFti5t5dHWJBI88Eig-xOBuzdovQtNqOdJM4xgHKTRe1Fc0UnAiLG8XHo9zLzll-haqytvclyxuoUgYMYL__FGVinE0f-_xEqGnXGmu7Gwj2BI6zpQ9tTjyHMvigAc8Og0uzzXl8TbypjvxvQdGgo-PVgAvpZ2yGQE4adAQpY921f3x-Mpe-WfqA-VH3xvlS3J4S4Loa9OufST08C8aFEdGiGg7qqspxGGpa135lW9Oq6hI4u"/>
+</div>
+<h3 class="font-headline text-2xl text-primary mb-2">Namiot Safari 'Flora'</h3>
+<p class="font-label text-stone-500 uppercase tracking-widest text-xs">Od 850 PLN / Noc</p>
+</div>
+<!-- Item 2 -->
+<div class="group cursor-pointer md:mt-16">
+<div class="overflow-hidden rounded-xl aspect-[3/4] mb-6">
+<img alt="Treehouse" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Modern architectural treehouse with large glass windows perched high in old pine trees during sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZUAYVO9pAY3f_eJX8-FB3DcgsitaZcyCjo1zwzRbusK38gLjd92vQZNDCZVcKRunVu6RdNzWToc9DYZ3Oq2PcpL639LoKsUgfU2leNYx6gBtVozkbcAc3gZKLg5mQSeyVloKSU8pDQyEVuBGdYTsAOdxTNq2E8Xh_hVAwqf78XxoudatGC3_URHymaYovxaVmVO6EJQN7Sk-26KrJ6yFoxFleCCO0cP0VmA_Zbl9S-iJLwlMpsfIJEu1PL8hMSLb1NS3GN7sQl3BE"/>
+</div>
+<h3 class="font-headline text-2xl text-primary mb-2">Dom na Drzewie 'Arbor'</h3>
+<p class="font-label text-stone-500 uppercase tracking-widest text-xs">Od 1200 PLN / Noc</p>
+</div>
+<!-- Item 3 -->
+<div class="group cursor-pointer">
+<div class="overflow-hidden rounded-xl aspect-[3/4] mb-6">
+<img alt="A-Frame Cabin" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Minimalist A-frame wooden cabin with dark exterior and large floor-to-ceiling window reflecting the surrounding forest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSJg9PmLMcGZCM49X-wtzm-lBCRr0UBZVAP4cl95YyPkaFTqA__XoH6jAhO8wPKwzwwXAgiQX64N4zpm1W2tky4Y9SyPsd3qpnMzOL3z7ngnlVV73qgRT587iLRgg7oQ9ZmG0KfXu5igLFTU8PYcr6L3K9lUaTrrKVW_-8MIkzJzJWVmNdjf2j_7YX5eeFXPau6hX7fXdyvabuPf6nc4Xj61wyK_0DlYMEU5EwCb9WZH2OVOzZjqLbz0Qa8h0mc0QMUsZNolzGg416"/>
+</div>
+<h3 class="font-headline text-2xl text-primary mb-2">Domek A-Frame 'Silve'</h3>
+<p class="font-label text-stone-500 uppercase tracking-widest text-xs">Od 950 PLN / Noc</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Activities Grid (Bento Style) -->
+<section class="py-32 px-12 max-w-screen-2xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-6 h-[800px]">
+<div class="md:col-span-2 md:row-span-2 relative overflow-hidden rounded-xl group">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Person practicing yoga on a wooden platform surrounded by a lush fern-filled forest in soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCulVkM5nA-3903H8f2std-wHIEOnk3i0ktA-gHzYdYPwUtvy93rLqRxDXUAsU0mG7JDyfTDPfanSCCft-TAGZsb-bFWFpEo1JG3MHvivjP-8v3JvmUn5Lr9gG1KUKpVkI631ROaYPxhJ5ar5chNgrlYUlCUwps7u1PrvZdBbMCC3CgkSwy7qTlrgyABKgFBVbwCRGnSRmWf05FLp492llYczJRACuS_4094RXGN0B3vEinIc2seXp2xmJk98jJah7KrNXFpL7lgdH"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-8 left-8 text-white">
+<h4 class="font-headline italic text-3xl mb-2">Poranna Joga</h4>
+<p class="font-label text-sm uppercase tracking-widest opacity-80">Codziennie o 7:00</p>
+</div>
+</div>
+<div class="md:col-span-2 relative overflow-hidden rounded-xl group">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Outdoor dining table set with organic food and wine under hanging fairy lights in a woodland clearing" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa6J20eS4OMjhmksj5kyF0udmw7t3ihs6ii5GdhwZizyQDXYzmcNkZypVw4x_EySpiVNhtJ7aVzGyYEWa6Rd5MBMamER8Te-_FeM6zrQqUKqgwyUYZr2ygtMlOIDZ3RPEg4VEuSsg3UPaq8LTN0aJrLDjPyiDrapj7SM6Ne76_Q5oLJKaPPGLkEd-vpMM7YWfN6nGko5wlGnQl812E1aqmTk26OGLYA0VbTlwUr1_RxrC0hTJ56wOxiktSh2Ofml4pZnMBjJbIBCNS"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-8 left-8 text-white">
+<h4 class="font-headline italic text-3xl mb-2">Kolacje pod Gwiazdami</h4>
+<p class="font-label text-sm uppercase tracking-widest opacity-80">Lokalne składniki</p>
+</div>
+</div>
+<div class="relative overflow-hidden rounded-xl group">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Hiker walking on a mossy forest trail with tall pines and soft dappled sunlight hitting the ground" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA59U8y6nHyHBfDXNC06hUbj9CrPHjtHWqjKZGM3CwyxDYU6iFPFXue8mwAQyEtykm405fZgIDjE1kASqPSxjeVW398CCpfhCuRnNPejdaJ9dPiN9Ze6HNbIHqpkmm1p27-63lsgg42q2ukj3bZBmslLutz2KCGUG7itr72GiM-5CmczJ_qNm5HZjrLFyLCn71_wHBHaMiPAFkzHx81rqGrW2l4NhAz4Sb4dvhk-pfUCeLEi82Aa8b2tXwCn2nd8cJ3_6X1UA12-OCN"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 text-white">
+<h4 class="font-headline italic text-xl mb-1">Leśne Szlaki</h4>
+</div>
+</div>
+<div class="relative overflow-hidden rounded-xl group">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Large bonfire burning at night with sparks flying into the dark air in front of a rustic cabin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJnDTrCeR_-vQ507z7fsBN5ow2EHrwdstNzm4JNMXTtDphpS8xjTsoicBVfd5PqbEWd6LkKMq0klUXviJXR_IYRnwhJtag-CC028rCwws16DlaDms76UHBprfn8WLLHmoW2ZbWGvGNIELZFTUwmxWoNZ0WPivTKREy4JRTWv2wN29DuoBLeo_MMwTkZQl4vS6Z8iOkE2Ij19T0mjXAtkxM4CNnkut1nUtrx86M-wEDCmv1bkZIY4FSgBzrIRaoBbty8Z4b05dr85xy"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 text-white">
+<h4 class="font-headline italic text-xl mb-1">Ogniska</h4>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="bg-surface-container-highest py-32 px-12">
+<div class="max-w-4xl mx-auto text-center">
+<span class="material-symbols-outlined text-primary text-5xl mb-12" data-icon="format_quote" data-weight="fill">format_quote</span>
+<p class="font-headline italic text-3xl md:text-5xl text-primary leading-tight mb-12">
+                    "Absolutna cisza, której tak bardzo potrzebowaliśmy. Design domków jest nieskazitelny, a poranna kawa z widokiem na zamglony las to wspomnienie, które zostanie z nami na zawsze."
+                </p>
+<div class="flex items-center justify-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img alt="Guest" class="w-full h-full object-cover" data-alt="Portrait of a woman smiling softly with natural lighting, outdoors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJGKdfiJgsRnCtlVkzgnh0AA-vXE9z2f7kbiO34RTpKqtROBkPbk6QbsMpaRDmD1d10dzKGYo-J-KYAeXCVvcSl2pj-Q71gKoArEsCJxO86oy4ihxEuMQZ1zONIg-WKoIhi9glELaxMKlsFNLsq_Xj5HBmL6HYlVLWBC6_JjYYlqU-QdzVkFXI-q1kPxlYq3kj2pYqdg70z2bPMpzYhetrgdlDcsP5rmQNXiMieOnZZQ4shQgAwRZU55G8p2Js5FIewHeoeWG0vnat"/>
+</div>
+<div class="text-left">
+<p class="font-headline text-lg text-primary">Anna &amp; Marek</p>
+<p class="font-label text-xs uppercase tracking-widest text-secondary">Goście z Warszawy</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-stone-100 dark:bg-stone-950">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-16 px-12 py-20 max-w-screen-2xl mx-auto">
+<div class="md:col-span-1">
+<div class="text-xl font-serif italic text-green-900 dark:text-green-100 mb-6">The Curated Sanctuary</div>
+<p class="font-body text-stone-500 text-sm leading-relaxed">
+                    Miejsce, gdzie czas zwalnia, a luksus mierzy się w chwilach spokoju.
+                </p>
+</div>
+<div>
+<h5 class="font-label text-xs uppercase tracking-[0.2em] text-primary mb-8">Navigation</h5>
+<ul class="space-y-4 font-body text-sm">
+<li><a class="text-stone-500 hover:text-green-900 underline underline-offset-4 decoration-stone-300 transition-colors duration-200" href="#">The Stay</a></li>
+<li><a class="text-stone-500 hover:text-green-900 underline underline-offset-4 decoration-stone-300 transition-colors duration-200" href="#">Journal</a></li>
+<li><a class="text-stone-500 hover:text-green-900 underline underline-offset-4 decoration-stone-300 transition-colors duration-200" href="#">Sustainability</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label text-xs uppercase tracking-[0.2em] text-primary mb-8">Social</h5>
+<ul class="space-y-4 font-body text-sm">
+<li><a class="text-stone-500 hover:text-green-900 underline underline-offset-4 decoration-stone-300 transition-colors duration-200" href="#">Instagram</a></li>
+<li><a class="text-stone-500 hover:text-green-900 underline underline-offset-4 decoration-stone-300 transition-colors duration-200" href="#">Pinterest</a></li>
+<li><a class="text-stone-500 hover:text-green-900 underline underline-offset-4 decoration-stone-300 transition-colors duration-200" href="#">LinkedIn</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label text-xs uppercase tracking-[0.2em] text-primary mb-8">Newsletter</h5>
+<p class="text-stone-500 text-sm mb-6">Zapisz się, by otrzymywać wieści z lasu.</p>
+<div class="flex border-b border-stone-300 pb-2">
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full p-0" placeholder="E-mail" type="email"/>
+<button class="text-primary material-symbols-outlined">arrow_forward</button>
+</div>
+</div>
+</div>
+<div class="px-12 py-12 max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs font-label text-stone-500 uppercase tracking-widest border-t border-stone-200">
+<div>© 2024 The Curated Sanctuary. Designed for the digital soul.</div>
+<div class="mt-4 md:mt-0 flex gap-8">
+<a href="#">Privacy Policy</a>
+<a href="#">Terms of Use</a>
+</div>
+</div>
+</footer>
+</body></html>

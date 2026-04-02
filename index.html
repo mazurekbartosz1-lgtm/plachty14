@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Manrope:wght@200..800&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "surface-variant": "#e4e2de",
+          "outline-variant": "#c3c8bb",
+          "on-primary-fixed": "#062100",
+          "tertiary-container": "#6c3451",
+          "primary-fixed": "#c5efad",
+          "on-primary-container": "#98c083",
+          "on-tertiary": "#ffffff",
+          "primary-fixed-dim": "#a9d293",
+          "surface-container": "#efeeea",
+          "primary": "#173809",
+          "on-secondary-fixed-variant": "#55442e",
+          "on-tertiary-fixed-variant": "#6c3451",
+          "background": "#fbf9f5",
+          "inverse-on-surface": "#f2f0ed",
+          "primary-container": "#2d4f1e",
+          "error-container": "#ffdad6",
+          "tertiary": "#511e3a",
+          "error": "#ba1a1a",
+          "on-secondary-container": "#725f48",
+          "on-surface-variant": "#43493e",
+          "on-primary-fixed-variant": "#2d4f1e",
+          "on-secondary-fixed": "#261907",
+          "surface-container-high": "#eae8e4",
+          "on-primary": "#ffffff",
+          "on-error": "#ffffff",
+          "inverse-primary": "#a9d293",
+          "surface-container-highest": "#e4e2de",
+          "on-secondary": "#ffffff",
+          "on-error-container": "#93000a",
+          "surface-dim": "#dbdad6",
+          "secondary-container": "#f5dcbe",
+          "on-tertiary-fixed": "#380824",
+          "surface-bright": "#fbf9f5",
+          "secondary": "#6e5b44",
+          "on-tertiary-container": "#e9a0c1",
+          "tertiary-fixed": "#ffd8e7",
+          "surface": "#fbf9f5",
+          "secondary-fixed-dim": "#dbc3a6",
+          "on-background": "#1b1c1a",
+          "inverse-surface": "#30312e",
+          "surface-container-lowest": "#ffffff",
+          "outline": "#73796d",
+          "surface-container-low": "#f5f3ef",
+          "tertiary-fixed-dim": "#fcb1d3",
+          "surface-tint": "#446733",
+          "secondary-fixed": "#f8dec1",
+          "on-surface": "#1b1c1a"
+        },
+        fontFamily: {
+          "headline": ["Newsreader", "serif"],
+          "body": ["Manrope", "sans-serif"],
+          "label": ["Manrope", "sans-serif"]
+        },
+        borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .editorial-shadow { box-shadow: 0 20px 50px rgba(0,0,0,0.05); }
+
+  /* gallery lazy fade */
+  .gallery-img { opacity: 0; transition: opacity .4s ease; }
+  .gallery-img.loaded { opacity: 1; }
+
+  /* modal */
+  #modal {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+  }
+  #modal.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+  #modal .modal-box {
+    transform: scale(.93) translateY(14px);
+    opacity: 0;
+    transition: transform .35s cubic-bezier(.34,1.56,.64,1), opacity .25s ease;
+  }
+  #modal.open .modal-box {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+</style>
+<title>Płachty 14</title>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-md flex justify-between items-center px-6 md:px-12 py-6" id="mainNav">
+  <div class="text-2xl font-headline italic nav-logo" style="color:white;transition:color .3s">Płachty 14</div>
+  <div class="hidden md:flex gap-12 items-center">
+    <a class="nav-link font-body text-sm uppercase tracking-widest transition-colors duration-300" style="color:rgba(255,255,255,.75)" href="#galeria">Galeria</a>
+    <a class="nav-link font-body text-sm uppercase tracking-widest transition-colors duration-300" style="color:rgba(255,255,255,.75)" href="#opis">Opis</a>
+  </div>
+  <a href="#kontakt" class="nav-btn px-8 py-3 rounded-full font-body text-sm uppercase tracking-widest hover:opacity-90 transition-all active:scale-95 duration-200" style="background:white;color:#173809;transition:background .3s,color .3s">
+    Kontakt
+  </a>
+</nav>
+
+<main class="overflow-x-hidden">
+
+<!-- Section 1: Hero -->
+<section class="relative aspect-square flex items-end p-8 md:p-20 overflow-hidden" style="min-height:min(100vw,100svh)">
+  <div class="absolute inset-0 z-0">
+    <img alt="Siedlisko view" class="w-full h-full object-cover" style="object-position:center 80%" src="Zdjecia/IMG_3774.jpg"/>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+  </div>
+  <div class="relative z-10 max-w-5xl text-on-primary">
+    <p class="font-label text-sm uppercase tracking-[0.4em] mb-6 opacity-90">Płachty, Liniewo (Kaszuby)</p>
+    <h1 class="font-headline text-5xl md:text-9xl italic mb-10 leading-tight drop-shadow-sm">Płachty 14</h1>
+    <div class="flex flex-col md:flex-row md:items-center gap-12">
+      <span class="text-4xl font-headline italic">875 000 zł</span>
+      <div class="h-px w-24 bg-on-primary/30 hidden md:block"></div>
+      <p class="max-w-md text-sm leading-relaxed opacity-90 uppercase tracking-[0.2em]">Enklawa spokoju zaledwie godzinę od tętniącego życiem Trójmiasta.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Section 2: Manifest -->
+<section class="py-32 px-6 md:px-24 bg-surface max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+  <div class="lg:col-span-6">
+    <h2 class="font-headline text-4xl md:text-7xl text-primary mb-12 leading-snug">Manifest harmonii. Powrót do tego, co istotne.</h2>
+    <div class="space-y-8 text-secondary font-body text-xl leading-relaxed max-w-2xl">
+      <p>Wierzymy, że luksus to nie przepych, lecz przestrzeń, cisza i możliwość oddechu. To miejsce, gdzie granica między domem a naturą zaciera się.</p>
+      <p>To gotowy ekosystem, stworzony dla tych, którzy szukają schronienia przed zgiełkiem świata, zachowując przy tym pragmatyzm inwestycyjny.</p>
+    </div>
+  </div>
+  <div class="lg:col-span-6 relative flex justify-center lg:justify-end">
+    <div class="aspect-[3/4] w-full max-w-md rounded-xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-1000 cursor-pointer" onclick="openModal(10)">
+      <img alt="Interior atmosphere" class="w-full h-full object-cover gallery-img loaded" src="Zdjecia/PXL_20250707_090002631.jpg"/>
+    </div>
+  </div>
+</section>
+
+<!-- Section 3: Dom który oddycha (interior gallery) -->
+<section class="py-32 bg-stone-50 px-6 md:px-12" id="galeria">
+  <div class="max-w-screen-2xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end mb-20">
+      <div class="lg:col-span-7">
+        <span class="font-label text-xs uppercase tracking-[0.5em] text-secondary block mb-4">Wnętrza</span>
+        <h2 class="font-headline text-5xl md:text-7xl italic text-primary">Dom, który oddycha.</h2>
+      </div>
+      <div class="lg:col-span-5">
+        <p class="text-on-surface-variant text-lg leading-relaxed">Przestrzenie zaprojektowane tak, by każdy kąt zapraszał do zatrzymania się. Naturalne materiały, ciepłe światło i detal, który widać dopiero przy drugiej kawie.</p>
+      </div>
+    </div>
+    <div class="columns-1 md:columns-2 lg:columns-4 gap-6" id="grid-interiors"></div>
+  </div>
+</section>
+
+<!-- Section 4: Opis -->
+<section class="py-32 px-6 md:px-24 bg-surface max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center" id="opis">
+  <div class="lg:col-span-6 relative flex justify-center lg:justify-start">
+    <div class="aspect-[3/4] w-full max-w-md rounded-xl overflow-hidden shadow-2xl -rotate-2 hover:rotate-0 transition-transform duration-1000 cursor-pointer" onclick="openModal(80)">
+      <img alt="Relaks na łące" class="w-full h-full object-cover gallery-img loaded" src="Zdjecia/IMG_4170.jpg"/>
+    </div>
+  </div>
+  <div class="lg:col-span-6">
+    <span class="font-label text-xs uppercase tracking-[0.5em] text-secondary block mb-6">Siedlisko</span>
+    <h2 class="font-headline text-4xl md:text-6xl text-primary mb-12 leading-snug">Miejsce, gdzie natura wchodzi przez drzwi razem z wami.</h2>
+    <div class="space-y-6 text-secondary font-body text-lg leading-relaxed max-w-2xl">
+      <p>Ustronne siedlisko godzinę od Trójmiasta, na pagórku otoczonym rozległą łąką i własnym iglastym lasem. Wokół jedynie pola — żadnych sąsiadów, żadnego zgiełku. Prawie 7 000 m² z zadblanymi roślinami, nowymi nasadzeniami i ogrodzeniem leśnym, które wyznacza granicę waszego prywatnego świata.</p>
+      <p>Serce domu to przestrzeń z kominkiem, jadalnią i kuchnią — miejsce, gdzie rodzina naprawdę się spotyka. Duży drewniany stół z ławkami, wygodna sofa przy ogniu, ciepła podłoga pod stopami. Parter uzupełniają łazienka i dwa pokoje. Poddasze to otwarta przestrzeń, którą każdy urządza po swojemu. Łączna powierzchnia: ~115 m².</p>
+      <p>Płachty to też doskonała baza do pracy zdalnej — internet T-Mobile z anteną zewnętrzną bez trudu obsługuje wideopołączenia i wszystkie serwisy streamingowe.</p>
+      <p>Na zewnątrz czeka balia z piecem na drewno i własnym systemem filtracji — całoroczne centrum relaksu pod otwartym kaszubskim niebem.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Section 5: Technical Data -->
+<section class="py-24 px-6 md:px-12 bg-primary text-on-primary">
+  <div class="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+    <div class="space-y-8">
+      <h2 class="font-headline text-5xl italic leading-tight">Esencja nieruchomości</h2>
+      <p class="text-on-primary/70 text-lg max-w-md">Starannie wyselekcjonowane dane techniczne potwierdzające unikalny charakter siedliska w Płachtach.</p>
+    </div>
+    <div class="grid grid-cols-2 gap-8 md:gap-12">
+      <div class="border-b border-on-primary/20 pb-6">
+        <span class="font-label text-[10px] uppercase tracking-widest opacity-60 block mb-2">Powierzchnia</span>
+        <span class="font-headline text-3xl">115 m²</span>
+      </div>
+      <div class="border-b border-on-primary/20 pb-6">
+        <span class="font-label text-[10px] uppercase tracking-widest opacity-60 block mb-2">Pokoje</span>
+        <span class="font-headline text-3xl">4 pokoje</span>
+      </div>
+      <div class="border-b border-on-primary/20 pb-6">
+        <span class="font-label text-[10px] uppercase tracking-widest opacity-60 block mb-2">Działka</span>
+        <span class="font-headline text-3xl">7000 m²</span>
+      </div>
+      <div class="border-b border-on-primary/20 pb-6">
+        <span class="font-label text-[10px] uppercase tracking-widest opacity-60 block mb-2">Bliscy sąsiedzi</span>
+        <span class="font-headline text-3xl">Brak</span>
+      </div>
+      <div class="border-b border-on-primary/20 pb-6">
+        <span class="font-label text-[10px] uppercase tracking-widest opacity-60 block mb-2">Zarobek z wynajmu (Lip–Sie)</span>
+        <span class="font-headline text-3xl">45 000 zł</span>
+      </div>
+      <div class="border-b border-on-primary/20 pb-6">
+        <span class="font-label text-[10px] uppercase tracking-widest opacity-60 block mb-2">Ogrzewanie</span>
+        <span class="font-headline text-3xl flex items-center gap-3">Podłogowe gazowe <span class="relative group/tip inline-flex"><span class="material-symbols-outlined text-lg cursor-default">wifi</span><span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 rounded-lg bg-on-primary text-primary font-label text-xs tracking-wide whitespace-nowrap opacity-0 group-hover/tip:opacity-100 transition-opacity pointer-events-none">Sterowane przez internet</span></span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Group 2: Kaszuby i czas tylko twój -->
+<section class="py-32 bg-surface px-6 md:px-12">
+  <div class="max-w-screen-2xl mx-auto">
+
+    <!-- Header -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end mb-24">
+      <div class="lg:col-span-7">
+        <span class="font-label text-xs uppercase tracking-[0.5em] text-secondary block mb-4">Natura i odpoczynek</span>
+        <h2 class="font-headline text-5xl md:text-7xl italic text-primary">Kaszuby i czas tylko twój.</h2>
+      </div>
+      <div class="lg:col-span-5">
+        <p class="text-on-surface-variant text-lg leading-relaxed">Las, łąka i niebo bez granic — a pośród tego balia, hamak i taras. Rytm dnia wyznacza tu słońce, nie zegarek.</p>
+      </div>
+    </div>
+
+    <!-- Full photo + video grid -->
+    <div class="columns-1 md:columns-2 lg:columns-4 gap-6" id="grid-nature-relax"></div>
+  </div>
+</section>
+
+<!-- Group 3: Na zewnątrz -->
+<section class="py-32 bg-surface-container-low px-6 md:px-12">
+  <div class="max-w-screen-2xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end mb-20">
+      <div class="lg:col-span-7">
+        <span class="font-label text-xs uppercase tracking-[0.5em] text-secondary block mb-4">Przestrzeń na zewnątrz</span>
+        <h2 class="font-headline text-5xl md:text-7xl italic text-primary">Gotowy na każdą porę roku.</h2>
+      </div>
+      <div class="lg:col-span-5">
+        <p class="text-on-surface-variant text-lg leading-relaxed">Sauna, ognisko, grill i tarasy, które żyją własnym życiem. Infrastruktura stworzona dla tych, którzy chcą więcej niż nocleg.</p>
+      </div>
+    </div>
+    <div class="columns-1 md:columns-2 lg:columns-4 gap-6" id="grid-outdoor"></div>
+  </div>
+</section>
+
+<!-- Group 4: Wieczory i noce -->
+<section class="py-32 bg-primary px-6 md:px-12">
+  <div class="max-w-screen-2xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end mb-20">
+      <div class="lg:col-span-7">
+        <span class="font-label text-xs uppercase tracking-[0.5em] text-on-primary/60 block mb-4">Wieczory i noce</span>
+        <h2 class="font-headline text-5xl md:text-7xl italic text-on-primary">Magia zapada po zmroku.</h2>
+      </div>
+      <div class="lg:col-span-5">
+        <p class="text-on-primary/70 text-lg leading-relaxed">Gdy słońce chowa się za lasem, Płachty nabierają innego wymiaru. Ciepło lampek, blask ogniska i niebo pełne gwiazd — to tu czas naprawdę zwalnia.</p>
+      </div>
+    </div>
+    <div class="columns-1 md:columns-2 lg:columns-4 gap-6" id="grid-evening"></div>
+  </div>
+</section>
+
+<!-- Section 7: Final CTA -->
+<section class="py-48 bg-primary text-on-primary text-center px-6 relative overflow-hidden" id="kontakt">
+  <div class="absolute inset-0 opacity-10 pointer-events-none">
+    <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-primary-container rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary-container rounded-full blur-[120px]"></div>
+  </div>
+  <div class="relative z-10 max-w-4xl mx-auto space-y-12">
+    <h2 class="font-headline text-6xl md:text-9xl italic leading-tight">Twoja przystań czeka.</h2>
+    <p class="font-label text-sm uppercase tracking-[0.5em] opacity-80">Odkryj magię Płacht osobiście.</p>
+    <div class="flex flex-col md:flex-row justify-center gap-8 pt-12">
+      <a class="bg-white text-primary px-16 py-6 rounded-full font-label text-sm uppercase tracking-widest font-bold hover:bg-surface-variant transition-all transform hover:-translate-y-1" href="tel:+48692515753">
+        Chcesz wiedzieć więcej? Zadzwoń: 692 515 753
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-stone-100 py-24 px-6">
+  <div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-16">
+    <div class="space-y-6">
+      <div class="text-2xl font-headline italic text-primary">Płachty 14</div>
+      <p class="text-stone-500 text-sm leading-relaxed">Wyjątkowe nieruchomości selekcjonowane z myślą o harmonii, ciszy i inwestycyjnym bezpieczeństwie.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ── MODAL ── -->
+<div id="modal" class="fixed inset-0 z-[999] flex items-center justify-center p-4 md:p-8"
+     style="background:rgba(27,28,26,0.88);" role="dialog" aria-modal="true" aria-label="Podgląd zdjęcia">
+  <div class="modal-box relative w-full max-w-5xl max-h-[92dvh] flex flex-col rounded-xl overflow-hidden"
+       style="box-shadow:0 40px 80px rgba(0,0,0,0.4);">
+    <!-- close btn top right -->
+    <button onclick="closeModal()" aria-label="Zamknij"
+            class="absolute top-3 right-3 z-10 w-9 h-9 rounded-full flex items-center justify-center text-on-surface hover:opacity-80 transition active:scale-90"
+            style="background:rgba(251,249,245,0.85);backdrop-filter:blur(8px);">
+      <span class="material-symbols-outlined" style="font-size:18px">close</span>
+    </button>
+    <!-- image area -->
+    <div class="bg-surface-container-lowest flex items-center justify-center flex-1 min-h-0">
+      <img id="modalImg" src="" alt="" class="max-w-full max-h-[80dvh] w-auto h-auto object-contain block"
+           style="transition:opacity .2s ease;"/>
+    </div>
+    <!-- footer bar -->
+    <div class="px-4 py-3 flex items-center justify-between gap-3 shrink-0 border-t"
+         style="background:rgba(251,249,245,0.90);backdrop-filter:blur(12px);border-color:rgba(195,200,187,0.3);">
+      <span id="modalFilename" class="font-label text-xs text-on-surface-variant truncate tracking-wide"></span>
+      <div class="flex items-center gap-2 shrink-0">
+        <span class="font-label text-xs text-on-surface-variant md:hidden">← przesuń →</span>
+        <button onclick="prevPhoto()" aria-label="Poprzednie"
+                class="hidden md:flex w-9 h-9 rounded-full bg-surface-container-high items-center justify-center hover:bg-surface-container-highest transition active:scale-90">
+          <span class="material-symbols-outlined" style="font-size:18px">arrow_back</span>
+        </button>
+        <button onclick="nextPhoto()" aria-label="Następne"
+                class="hidden md:flex w-9 h-9 rounded-full bg-surface-container-high items-center justify-center hover:bg-surface-container-highest transition active:scale-90">
+          <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span>
+        </button>
+        <button onclick="closeModal()" aria-label="Zamknij"
+                class="hidden md:flex w-9 h-9 rounded-full bg-primary text-on-primary items-center justify-center hover:opacity-90 transition active:scale-90">
+          <span class="material-symbols-outlined" style="font-size:18px">close</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const photos = [
+  "IMG_3671 (1).jpg","IMG_3672.jpg","IMG_3692 (1).jpg","IMG_3717 (1).jpg",
+  "IMG_3723 (1).jpg","IMG_3729.jpg","IMG_3735 (1).jpg","IMG_3747.jpg",
+  "IMG_3750.jpg","IMG_3764.jpg","IMG_3774.jpg","IMG_3775.jpg","IMG_3776.jpg",
+  "IMG_3780 (1).jpg","IMG_3786.jpg","IMG_3790 (1).jpg","IMG_3793 (1).jpg",
+  "IMG_3794.jpg","IMG_3806.jpg","IMG_3809 (1).jpg","IMG_3920.jpg","IMG_3935.jpg",
+  "IMG_3936.jpg","IMG_3938.jpg","IMG_3941.jpg","IMG_3955.jpg","IMG_3974.jpg",
+  "IMG_3982.jpg","IMG_3996.jpg","IMG_4013.jpg","IMG_4015.jpg","IMG_4023.jpg",
+  "IMG_4036.jpg","IMG_4037.jpg","IMG_4041.jpg","IMG_4042.jpg","IMG_4050.jpg",
+  "IMG_4054.jpg","IMG_4056.jpg","IMG_4058.jpg","IMG_4061.jpg","IMG_4066.jpg",
+  "IMG_4075.jpg","IMG_4082.jpg","IMG_4084.jpg","IMG_4095.jpg","IMG_4099.jpg",
+  "IMG_4108.jpg","IMG_4114.jpg","IMG_4120.jpg","IMG_4122.jpg","IMG_4123.jpg",
+  "IMG_4124.jpg","IMG_4136.jpg","IMG_4137.jpg","IMG_4141.jpg","IMG_4142.jpg",
+  "IMG_4144.jpg","IMG_4146.jpg","IMG_4148.jpg","IMG_4151.jpg","IMG_4154.jpg",
+  "IMG_4161.jpg","IMG_4168.jpg","IMG_4170.jpg","IMG_4173.jpg","IMG_4185.jpg",
+  "IMG_4187.jpg","IMG_4188.jpg",
+  "PXL_20250601_141216442.jpg","PXL_20250619_112548821.PORTRAIT.jpg",
+  "PXL_20250619_120649215.jpg","PXL_20250626_100523253~2.jpg",
+  "PXL_20250626_103012859~2.jpg","PXL_20250704_154428126.PORTRAIT.jpg",
+  "PXL_20250704_154513188.LONG_EXPOSURE-01.COVER~2.jpg","PXL_20250704_160116270~2.jpg",
+  "PXL_20250704_163550203.jpg","PXL_20250707_090002631.jpg",
+  "PXL_20250707_122045332~2.jpg","PXL_20250708_065643260.PORTRAIT.jpg",
+  "PXL_20250708_065821873.PORTRAIT.jpg","PXL_20250708_101601409.jpg",
+  "PXL_20250708_102220696~2.jpg","PXL_20250904_111350900.jpg",
+  "PXL_20250907_102632975.PORTRAIT.ORIGINAL.jpg","PXL_20250907_115028263~2.jpg",
+  "PXL_20250913_050644381.jpg","PXL_20250913_060515566.LONG_EXPOSURE-01.COVER.jpg",
+  "PXL_20250913_060553765.jpg","PXL_20250913_060706841.jpg",
+  "PXL_20250913_060746129-EFFECTS.jpg","PXL_20250913_060846447.jpg",
+  "PXL_20250913_060907426.jpg","PXL_20251229_181847374.jpg",
+  "PXL_20260104_104045377.LONG_EXPOSURE-01.COVER.jpg","PXL_20260104_104657833.PORTRAIT.jpg",
+  "PXL_20260104_104818163.jpg","PXL_20260104_104833256.jpg",
+  "PXL_20260128_182726275.NIGHT.jpg","PXL_20260128_183007184.NIGHT.jpg",
+  "PXL_20260128_183036203.NIGHT.jpg","PXL_20260128_183101654.NIGHT.jpg"
+];
+
+// ── Komentarze gości z Airbnb ──
+const comments = [
+  {
+    text: "Domek jest klimatyczny, bardzo czysty i świetnie wyposażony — mieliśmy wszystko, czego potrzebowaliśmy. Wieczory przy kominku i filmy na rzutniku tworzyły wyjątkową atmosferę. Cisza, spokój i pełen relaks — zdecydowanie miejsce, do którego chce się wracać!",
+    author: "Gość Airbnb"
+  },
+  {
+    text: "Pobyt w Płachtach to idealnie spędzone wakacje. Spokój, zieleń, idylliczna wręcz polska wieś. Dom gustownie urządzony, bardzo komfortowy. Teren wokół duży, zadbany, świetnie zagospodarowany. Aż smutno było wyjeżdżać.",
+    author: "Gość Airbnb"
+  },
+  {
+    text: "Super-super-super! Mega ciche, spokojne miejsce. Najlepszy kontakt z właścicielem, jaki miałam korzystając z Airbnb. Na pewno będziemy chcieli tam wrócić! W domku jest wszystko czego potrzeba, a nawet i więcej!",
+    author: "Gość Airbnb"
+  },
+  {
+    text: "Domek fantastycznie wyposażony w pięknej i spokojnej lokalizacji. Do dyspozycji gości hamaki, balia, grill, palenisko, a nawet drzewka owocowe i krzaczki z porzeczkami. Łóżka bardzo wygodne, wszystko bardzo czyste i zadbane.",
+    author: "Gość Airbnb"
+  },
+  {
+    text: "Cztery osoby z naszej grupy przyjechały do pracy zdalnej — miejsce było do tego idealne. Internet bardzo stabilny, dużo miejsca: biurko, duży stół jadalny, siedzenia na zewnątrz. Dom naprawdę bardzo czysty i bardzo dobrze wyposażony. Zdecydowanie polecamy zarówno do pracy, jak i na wakacje!",
+    author: "Gość Airbnb"
+  }
+];
+
+function makeCommentCard(comment, dark = false) {
+  const wrap = document.createElement('div');
+  wrap.className = 'break-inside-avoid mb-6';
+  wrap.innerHTML = `
+    <div class="rounded-xl p-8 ${dark ? 'bg-primary-container/30' : 'bg-white'}" style="box-shadow:0 20px 50px rgba(0,0,0,0.05)">
+      <div class="flex items-center gap-2 mb-5">
+        <svg width="16" height="16" viewBox="0 0 32 32" fill="${dark ? '#a9d293' : '#FF5A5F'}" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 1C7.716 1 1 7.716 1 16c0 8.284 6.716 15 15 15s15-6.716 15-15C31 7.716 24.284 1 16 1zm0 4a5 5 0 110 10 5 5 0 010-10zm0 21.5a11.5 11.5 0 01-9.004-4.33C8.55 19.95 12.017 18.5 16 18.5s7.45 1.45 9.004 3.67A11.5 11.5 0 0116 26.5z"/>
+        </svg>
+        <span class="font-label text-[10px] uppercase tracking-[0.3em] ${dark ? 'text-on-primary/50' : 'text-stone-400'}">Komentarz z Airbnb</span>
+      </div>
+      <p class="font-headline italic text-lg leading-relaxed ${dark ? 'text-on-primary/90' : 'text-primary'} mb-6">"${comment.text}"</p>
+      <div class="flex items-center gap-2">
+        <div class="w-1 h-6 rounded-full ${dark ? 'bg-primary-fixed-dim' : 'bg-primary/30'}"></div>
+        <span class="font-label text-xs uppercase tracking-widest ${dark ? 'text-on-primary/50' : 'text-secondary'}">${comment.author}</span>
+      </div>
+    </div>`;
+  return wrap;
+}
+
+function buildMixedGrid(gridId, photos, videos, commentIndices, dark = false) {
+  const grid = document.getElementById(gridId);
+  if (!grid) return;
+
+  // Interleave photos and videos: put a video every ~5 photos
+  const items = [];
+  let vi = 0;
+  photos.forEach((name, pi) => {
+    items.push({ type: 'photo', name });
+    if (vi < videos.length && (pi + 1) % 5 === 0) {
+      items.push({ type: 'video', name: videos[vi++] });
+    }
+  });
+  // remaining videos at the end of their natural positions
+  while (vi < videos.length) items.push({ type: 'video', name: videos[vi++] });
+
+  // Insert comment cards at specified indices
+  const sorted = [...commentIndices].sort((a,b) => b-a);
+  sorted.forEach(idx => {
+    const ci = commentIndices.indexOf(idx);
+    items.splice(idx, 0, { type: 'comment', idx: ci });
+  });
+
+  items.forEach(item => {
+    if (item.type === 'photo') {
+      const i = photos.indexOf(item.name); // for modal index — use global photos array
+      const globalIdx = window._allPhotos ? window._allPhotos.indexOf(item.name) : 0;
+      const wrap = document.createElement('div');
+      wrap.className = 'break-inside-avoid mb-6 cursor-pointer overflow-hidden rounded-lg group';
+      const img = document.createElement('img');
+      img.src = 'Zdjecia/' + encodeURIComponent(item.name);
+      img.alt = item.name;
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.className = 'w-full rounded-lg transition-all duration-700 group-hover:scale-[1.02] gallery-img' + (dark ? ' brightness-90 group-hover:brightness-100' : ' hover:opacity-90');
+      img.addEventListener('load',  () => img.classList.add('loaded'));
+      img.addEventListener('error', () => img.classList.add('loaded'));
+      wrap.appendChild(img);
+      wrap.addEventListener('click', () => openModal(globalIdx >= 0 ? globalIdx : 0));
+      grid.appendChild(wrap);
+    } else if (item.type === 'video') {
+      const wrap = document.createElement('div');
+      wrap.className = 'break-inside-avoid mb-6 overflow-hidden rounded-lg';
+      const vid = document.createElement('video');
+      vid.src = 'videos/' + encodeURIComponent(item.name);
+      vid.className = 'w-full rounded-lg';
+      vid.setAttribute('controls', '');
+      vid.setAttribute('preload', 'metadata');
+      vid.setAttribute('playsinline', '');
+      vid.muted = true;
+      wrap.appendChild(vid);
+      grid.appendChild(wrap);
+    } else if (item.type === 'comment') {
+      grid.appendChild(makeCommentCard(comments[item.idx % comments.length], dark));
+    }
+  });
+}
+
+// Photo groups (categorized by visual content)
+const groups = {
+  'grid-interiors': [
+    "IMG_4013.jpg","IMG_4015.jpg","IMG_4023.jpg","IMG_4036.jpg",
+    "IMG_4037.jpg","IMG_4041.jpg","IMG_4042.jpg","IMG_4050.jpg","IMG_4054.jpg",
+    "IMG_4056.jpg","IMG_4058.jpg","IMG_4061.jpg","IMG_4066.jpg","IMG_4075.jpg",
+    "IMG_4082.jpg","IMG_4084.jpg","IMG_4095.jpg","IMG_4099.jpg","IMG_4108.jpg",
+    "IMG_4114.jpg","IMG_4120.jpg","IMG_4122.jpg","IMG_4123.jpg","IMG_4124.jpg",
+    "IMG_4136.jpg","IMG_4137.jpg","IMG_4141.jpg","IMG_4142.jpg","IMG_4144.jpg",
+    "IMG_4146.jpg","IMG_4148.jpg","IMG_4151.jpg","IMG_4154.jpg","IMG_4161.jpg",
+    "IMG_4168.jpg","IMG_4170.jpg","IMG_4173.jpg","IMG_4185.jpg","IMG_4187.jpg",
+    "IMG_4188.jpg","PXL_20251229_181847374.jpg",
+    // nowe
+    "PXL_20241207_100644279.jpg","PXL_20241207_100712773.jpg","PXL_20250913_061610791.PORTRAIT.jpg"
+  ],
+  'grid-nature-relax': [
+    // natura
+    "IMG_3671 (1).jpg","IMG_3672.jpg","IMG_3774.jpg","IMG_3786.jpg","IMG_3790 (1).jpg",
+    "PXL_20250601_141216442.jpg","PXL_20250619_112548821.PORTRAIT.jpg","PXL_20250619_120649215.jpg",
+    "PXL_20250707_090002631.jpg","PXL_20250708_065821873.PORTRAIT.jpg","PXL_20250708_101601409.jpg",
+    "PXL_20250708_102220696~2.jpg","PXL_20250904_111350900.jpg","PXL_20250907_102632975.PORTRAIT.ORIGINAL.jpg",
+    "PXL_20250913_060706841.jpg","PXL_20250913_060846447.jpg","PXL_20250913_060907426.jpg",
+    "PXL_20260104_104657833.PORTRAIT.jpg","PXL_20260104_104818163.jpg","PXL_20260104_104833256.jpg",
+    "PXL_20241024_141157030.jpg","PXL_20241024_141709149.PORTRAIT.jpg","PXL_20241025_073844155.jpg",
+    "PXL_20241025_135402437.jpg","PXL_20241025_135445328.PORTRAIT.jpg","PXL_20241025_135452097.PORTRAIT.ORIGINAL.jpg",
+    "PXL_20250413_055531347.jpg","PXL_20250416_163828679~3.jpg","PXL_20250417_075309565~2.jpg",
+    "PXL_20250612_182905328~2.jpg","PXL_20250615_122410295~2.jpg",
+    // odpoczynek
+    "IMG_3692 (1).jpg","IMG_3717 (1).jpg","IMG_3723 (1).jpg","IMG_3729.jpg","IMG_3735 (1).jpg",
+    "IMG_3747.jpg","IMG_3750.jpg","IMG_3764.jpg","IMG_3775.jpg","IMG_3776.jpg",
+    "IMG_3780 (1).jpg","IMG_3793 (1).jpg","IMG_3794.jpg","IMG_3806.jpg","IMG_3809 (1).jpg",
+    "PXL_20250626_100523253~2.jpg","PXL_20250704_154428126.PORTRAIT.jpg",
+    "PXL_20250704_160116270~2.jpg","PXL_20250707_122045332~2.jpg","PXL_20250907_115028263~2.jpg",
+    "PXL_20250104_094248330.PORTRAIT.ORIGINAL.jpg","PXL_20250619_094309109.PORTRAIT~2.jpg","PXL_20250615_123732548~3.jpg"
+  ],
+  'grid-outdoor': [
+    "PXL_20250704_154513188.LONG_EXPOSURE-01.COVER~2.jpg","PXL_20250704_163550203.jpg",
+    "PXL_20250626_103012859~2.jpg","PXL_20260104_104045377.LONG_EXPOSURE-01.COVER.jpg",
+    "PXL_20250913_050644381.jpg","PXL_20250913_060515566.LONG_EXPOSURE-01.COVER.jpg",
+    "PXL_20250913_060553765.jpg","PXL_20250913_060746129-EFFECTS.jpg",
+    // nowe
+    "PXL_20241025_135747198.jpg","PXL_20250104_093437099.jpg","PXL_20250104_094630147.jpg",
+    "PXL_20250411_160232835~2.jpg","PXL_20250411_171355552.ACTION_PAN.jpg",
+    "PXL_20250416_161236336~3.jpg","PXL_20250416_161339583.PORTRAIT~2.jpg","PXL_20250416_170950860~2.jpg"
+  ],
+  'grid-evening': [
+    "IMG_3935.jpg","IMG_3936.jpg","IMG_3938.jpg","IMG_3941.jpg","IMG_3955.jpg",
+    "IMG_3974.jpg","IMG_3982.jpg","IMG_3996.jpg",
+    "PXL_20260128_182726275.NIGHT.jpg","PXL_20260128_183007184.NIGHT.jpg",
+    "PXL_20260128_183036203.NIGHT.jpg","PXL_20260128_183101654.NIGHT.jpg",
+    // nowe
+    "PXL_20241123_151854225.LONG_EXPOSURE-01.COVER.jpg","PXL_20241123_152123109.LONG_EXPOSURE-01.COVER.jpg",
+    "PXL_20241123_161623624.NIGHT.jpg","PXL_20241223_152230126.NIGHT~2.jpg",
+    "PXL_20241223_161025145.NIGHT.jpg","PXL_20250329_174856206~4.jpg",
+    "PXL_20250430_190832332.NIGHT.jpg","PXL_20250430_190835395.NIGHT.jpg",
+    "PXL_20250430_190852796.NIGHT.jpg","PXL_20250430_190923057.NIGHT.jpg"
+  ]
+};
+
+// Videos per group
+const videosByGroup = {
+  'grid-nature-relax': [
+    "dji_fly_20250201_155150_0036_1738431368586_video~3.mp4",
+    "dji_fly_20250228_100834_0057_1740827049126_video~2.mp4",
+    "dji_fly_20250301_142722_0061_1740837721333_quickshot~3.mp4",
+    "dji_fly_20250329_173704_0116_1743268031079_quickshot.mp4",
+    "dji_fly_20250412_163858_0136_1744468831382_quickshot~3.mp4",
+    "dji_fly_20250412_164732_0138_1744469364655_quickshot.mp4",
+    "dji_fly_20250418_123504_0152_1745045353514_video~3.mp4"
+  ],
+  'grid-outdoor': [
+    "PXL_20241102_115105676.mp4","PXL_20250104_094024279.mp4","PXL_20250104_094638706.mp4",
+    "PXL_20250104_105231260.mp4","PXL_20250104_105756959.mp4","PXL_20250105_163607499.mp4",
+    "PXL_20250301_125109557~2.mp4","PXL_20250323_064609740.mp4","PXL_20250330_070900727.mp4",
+    "PXL_20250411_155328521.mp4","PXL_20250411_171833018.mp4","PXL_20250416_165853205.mp4",
+    "PXL_20250612_183428307.mp4","PXL_20250619_092524888.mp4","PXL_20250619_131005778.mp4"
+  ]
+};
+
+// make all photos accessible globally for modal index lookup
+// Rebuild _allPhotos from all groups so every photo in every grid opens correctly
+window._allPhotos = Object.values(groups).flat().filter((v, i, a) => a.indexOf(v) === i);
+
+// Build each group with mixed photos, videos and comments
+buildMixedGrid('grid-interiors',     groups['grid-interiors'],     [],                              [10, 30], false);
+buildMixedGrid('grid-nature-relax',  groups['grid-nature-relax'],  videosByGroup['grid-nature-relax'], [15, 38], false);
+buildMixedGrid('grid-outdoor',       groups['grid-outdoor'],       videosByGroup['grid-outdoor'],   [12],     false);
+buildMixedGrid('grid-evening',       groups['grid-evening'],       [],                              [8],      true);
+
+// ── MODAL ──
+const modal    = document.getElementById('modal');
+const modalImg = document.getElementById('modalImg');
+const modalFn  = document.getElementById('modalFilename');
+let current = 0;
+
+function openModal(i) {
+  current = i;
+  showPhoto();
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function showPhoto() {
+  const name = window._allPhotos[current];
+  modalImg.style.opacity = '0';
+  modalImg.src = 'Zdjecia/' + encodeURIComponent(name);
+  modalImg.alt = name;
+  modalImg.onload = () => { modalImg.style.opacity = '1'; };
+  modalFn.textContent = name;
+}
+function prevPhoto() { current = (current - 1 + window._allPhotos.length) % window._allPhotos.length; showPhoto(); }
+function nextPhoto() { current = (current + 1) % window._allPhotos.length; showPhoto(); }
+
+modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+document.addEventListener('keydown', e => {
+  if (!modal.classList.contains('open')) return;
+  if (e.key === 'Escape')     closeModal();
+  if (e.key === 'ArrowLeft')  prevPhoto();
+  if (e.key === 'ArrowRight') nextPhoto();
+});
+
+// Nav scroll behaviour — transparent over hero, white when scrolled past
+const nav = document.getElementById('mainNav');
+const hero = document.querySelector('main section');
+function updateNav() {
+  const heroBottom = hero.getBoundingClientRect().bottom;
+  const past = heroBottom <= 0;
+  nav.style.background = past ? 'rgba(255,255,255,0.88)' : 'transparent';
+  document.querySelectorAll('.nav-logo').forEach(el => el.style.color = past ? '#173809' : 'white');
+  document.querySelectorAll('.nav-link').forEach(el => el.style.color = past ? 'rgba(87,73,62,.85)' : 'rgba(255,255,255,.75)');
+  const btn = document.querySelector('.nav-btn');
+  btn.style.background = past ? '#173809' : 'white';
+  btn.style.color = past ? 'white' : '#173809';
+}
+window.addEventListener('scroll', updateNav, { passive: true });
+updateNav();
+
+// Touch swipe
+let tx = 0, ty = 0;
+modal.addEventListener('touchstart', e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
+modal.addEventListener('touchend',   e => {
+  const dx = e.changedTouches[0].clientX - tx;
+  const dy = e.changedTouches[0].clientY - ty;
+  if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) dx < 0 ? nextPhoto() : prevPhoto();
+}, { passive: true });
+</script>
+</body></html>
