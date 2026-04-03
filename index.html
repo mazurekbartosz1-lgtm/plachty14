@@ -452,8 +452,7 @@ function buildMixedGrid(gridId, photos, videos, commentIndices, dark = false, vi
   // Insert comment cards at specified indices
   const sorted = [...commentIndices].sort((a,b) => b-a);
   sorted.forEach(idx => {
-    const ci = commentIndices.indexOf(idx);
-    items.splice(idx, 0, { type: 'comment', idx: ci });
+    items.splice(idx, 0, { type: 'comment' });
   });
 
   items.forEach(item => {
@@ -487,7 +486,7 @@ function buildMixedGrid(gridId, photos, videos, commentIndices, dark = false, vi
       wrap.appendChild(vid);
       grid.appendChild(wrap);
     } else if (item.type === 'comment') {
-      grid.appendChild(makeCommentCard(comments[item.idx % comments.length], dark));
+      grid.appendChild(makeCommentCard(comments[buildMixedGrid._ci++ % comments.length], dark));
     }
   });
 }
@@ -582,6 +581,9 @@ const videosByGroup = {
 // make all photos accessible globally for modal index lookup
 // Rebuild _allPhotos from all groups so every photo in every grid opens correctly
 window._allPhotos = Object.values(groups).flat().filter((v, i, a) => a.indexOf(v) === i);
+
+// Global comment counter — ensures no comment repeats across grids
+buildMixedGrid._ci = 0;
 
 // Build each group with mixed photos, videos and comments
 buildMixedGrid('grid-interiors',     groups['grid-interiors'],     [],                              [10, 30], false);
